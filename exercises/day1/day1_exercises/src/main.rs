@@ -7,7 +7,7 @@ fn find_mean(x: &[f64]) -> f64{
 	return mean/(x.len() as f64);
 }
 
-/// Figures out if a number is prime or not
+/// Figures out if a number is prime or not (only interesting for an integer)
 ///
 /// Returns whether a number is prime or not
 fn is_prime(x: i32) -> bool{
