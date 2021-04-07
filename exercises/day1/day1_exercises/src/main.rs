@@ -1,4 +1,6 @@
-
+/// Calculates the mean of an array
+///
+/// Calculates and returns the mean of the array `x` as a f64
 fn find_mean(x: &[f64]) -> f64{
 	let mut mean: f64 = 0.;
 	for num in x.iter(){ mean += num; }
