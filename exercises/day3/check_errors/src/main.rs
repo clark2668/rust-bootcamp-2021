@@ -46,8 +46,9 @@ fn get_numbers() -> Vec<i32> {
 fn counter(numbers: &Vec<i32>) -> HashMap<i32,usize> {
     let mut result = HashMap::new();
     for num in numbers {
-        let count = result.insert(&num, 0).unwrap();
-        count += 1;
+        // let count = result.insert(&num, 0).unwrap();
+        let count = result.entry(*num).or_insert(0);
+        *count += 1;
     }
     result
 }
@@ -56,10 +57,10 @@ fn counter(numbers: &Vec<i32>) -> HashMap<i32,usize> {
 fn main() {
     let numbers = get_numbers();
     let count = counter(&numbers);
-    // println!("\nCounts:");
-    // for num in count.keys().sorted() {
-    //     println!("{}: {}", num, count[num]);
-    // }
+    println!("\nCounts:");
+    for num in count.keys().sorted() {
+        println!("{}: {}", num, count[num]);
+    }
 }
 
 // #[cfg(test)]
